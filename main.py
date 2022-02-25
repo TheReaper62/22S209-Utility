@@ -18,6 +18,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.author == client.user:
+        return
     if match(message.content,['hi','hello']):
         await message.channel.send(f'Hi {message.author.mention}!!!')
     elif match(message.content,['attire']):
