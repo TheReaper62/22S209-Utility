@@ -4,7 +4,6 @@ import discord
 
 from datetime import datetime
 
-from alive import keep_alive
 import config as CONF
 
 # Fucntions
@@ -31,8 +30,4 @@ async def on_message(message):
         )
         await message.channel.send(embed=embed)
         
-    
-# Run Webserver
-keep_alive()
-
 client.run(os.environ['token'])
