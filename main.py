@@ -1,7 +1,7 @@
 from typing import Union
 import os
 import discord
-from replit import db
+
 from datetime import datetime
 
 from alive import keep_alive
