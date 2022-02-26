@@ -7,3 +7,5 @@ attire = [
     "It's a Weekend",
     "It's a Weekend",
 ]
+
+ADMIN_IDs = [493022725271453707, 591107669180284928]

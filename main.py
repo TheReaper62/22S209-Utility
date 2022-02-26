@@ -24,10 +24,14 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.content.startswith('|clear'):
+    if message.content.startswith('|clear') and message.author.id in CONF.ADMIN_IDs:
         limit = int(message.content.split(' ')[1]) if len(message.content.split(' ')) > 1 else 10
         await message.channel.purge(limit=limit)
         await message.channel.send(f"Cleared {limit} messages", delete_after=3)
+    if message.content.startswith('|reverify') and message.author.id in CONF.ADMIN_IDs:
+        for member in message.guild.members:
+            if 946341272015237150 not in [r.id for r in member.roles]:
+                await member.send(f'Welcome {member.mention}!\nPlease Identify yourself in #introductions before you get access to the rest of the server')
     if match(message.content,['hi','hello']):
         await message.channel.send(f'Hi {message.author.mention}!!!')
     elif match(message.content,['attire']):
