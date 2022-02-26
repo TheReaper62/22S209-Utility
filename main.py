@@ -31,7 +31,10 @@ async def on_message(message):
     if message.content.startswith('|reverify') and message.author.id in CONF.ADMIN_IDs:
         for member in message.guild.members:
             if 946341272015237150 not in [r.id for r in member.roles]:
-                await member.send(f'Welcome {member.mention}!\nPlease Identify yourself in #introductions before you get access to the rest of the server')
+                try:
+                    await member.send(f'Welcome {member.mention}!\nPlease Identify yourself in #introductions before you get access to the rest of the server')
+                except Exception as e:
+                    print(f"Failed to send welcome message to {member.name}")
     if match(message.content,['hi','hello']):
         await message.channel.send(f'Hi {message.author.mention}!!!')
     elif match(message.content,['attire']):
