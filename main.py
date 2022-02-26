@@ -17,6 +17,10 @@ async def on_ready():
     print("Bot Online")
 
 @client.event
+async def on_member_join(member):
+    await member.send(f'Welcome {member.mention}!\nPlease Identify yourself in #introductions before you get access to the rest of the server')
+
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
