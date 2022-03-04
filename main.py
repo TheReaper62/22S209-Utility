@@ -22,6 +22,8 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+    if message.guild.channels.find(947127564491686018):
+        return
     if message.author == client.user:
         return
     if message.content.startswith('|clear') and message.author.id in CONF.ADMIN_IDs:
